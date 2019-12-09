@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { ApiUseTags } from '@nestjs/swagger';
 import { Crud } from 'nestjs-mongoose-crud';
 import { Episode } from '@libs/db/modules/episode.model';
@@ -15,4 +15,13 @@ export class EpisodesController {
     @InjectModel(Episode)
     private readonly model: ReturnModelType<typeof Episode>,
   ) {}
+
+  // 展示table中curd定义
+  @Get('option')
+  option() {
+    return {
+      title: '课时管理',
+      column: [{ prop: 'name', label: '课时名称' }],
+    };
+  }
 }

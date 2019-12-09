@@ -11,10 +11,10 @@ import { ApiUseTags } from '@nestjs/swagger';
 @ApiUseTags('用户')
 export class UsersController {
   constructor(@InjectModel(User) private readonly model) {}
-  @Get('options')
+  @Get('option')
   option() {
     return {
-      title: '123',
+      title: '用户管理',
       column: [{ prop: 'username', label: '用户名' }],
     };
   }
