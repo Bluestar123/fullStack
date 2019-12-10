@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="850px" height="818px" viewBox="0 0 850 818" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>登录框bg</title>
+    <desc>Created with Sketch.</desc>
+    <g id="登录框bg" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <polygon id="形状-539-拷贝" fill="#FF850D" opacity="0.3" points="25.2505657 72.0808646 2.07308941e-13 366.503499 25.2505657 802.883305 726.00392 817.868694 849.816661 659.657033 782 94.003499 490 94.003499 68.9416716 21.160149"></polygon>
+            <polygon id="形状-516-拷贝" fill="#F85B00" points="505 89.1828329 481.485998 18.999571 436.089812 -2.35387729e-16 33.255122 -2.35387729e-16 11 32.000186 11 144.161729 81.254028 105.76672"></polygon>
+            <polygon id="形状-908" fill="#F85B00" points="96.718025 726.000599 732.751775 745.999919 791.51405 681.000044 831.84335 139.999534 824.282718 69.4484341 81.739325 99.000094 10.29845 142.999849 69.2431172 704.016209"></polygon>
+        </g>
+    </g>
+</svg>

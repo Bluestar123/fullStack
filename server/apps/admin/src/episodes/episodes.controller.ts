@@ -21,6 +21,9 @@ export class EpisodesController {
   option() {
     return {
       title: '课时管理',
+      align: 'center',
+      border: true,
+      stripe: true,
       column: [{ prop: 'name', label: '课时名称' }],
     };
   }

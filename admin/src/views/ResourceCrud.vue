@@ -10,6 +10,7 @@
       @row-del="remove"
       @on-load="changePage"
       @sort-change="changeSort"
+      @search-change="search"
     ></avue-crud>
   </div>
 </template>
@@ -42,7 +43,6 @@ export default class ResourceList extends Vue {
   async fetchOption() {
     const res = await this.$http.get(`${this.resource}/option`)
     this.option = res.data
-    this.$set(this.option, 'align', 'center')
   }
   async fetch() {
     const res = await this.$http.get(`${this.resource}`, {
@@ -71,6 +71,21 @@ export default class ResourceList extends Vue {
     }
     this.fetch()
   }
+
+  async search(obj) {
+    let where = JSON.parse(JSON.stringify(obj))
+    // 模糊查找
+    for (let k in where) {
+      const field = this.option.column.find(v => v.prop === k)
+      if (field.regex) {
+        where[k] = { $regex: where[k] }
+      }
+    }
+    // 精确
+    this.query.where = where
+    this.fetch()
+  }
+
   async create(row, done, loading) {
     await this.$http.post(`${this.resource}`, row)
     this.$message.success('创建成功')

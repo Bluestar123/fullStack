@@ -17,4 +17,7 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+.avue-upload__avatar {
+  height: auto !important;
+}
 </style>
