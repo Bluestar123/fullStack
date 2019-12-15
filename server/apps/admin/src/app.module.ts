@@ -3,16 +3,25 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DbModule } from '@libs/db';
 import { UsersModule } from './users/users.module';
-import { UsersController } from './users/users.controller';
 import { CoursesModule } from './courses/courses.module';
 import { EpisodesModule } from './episodes/episodes.module';
 import { MulterModule } from '@nestjs/platform-express';
+const MAO = require('multer-aliyun-oss');
 
 @Module({
   imports: [
     MulterModule.register({
+      // 使用云存储
+      storage: MAO({
+        config: {
+            region: 'oss-cn-hangzhou',
+            accessKeyId: 'LTAI4FuhmDY8p3cqXgvdXoFh',
+            accessKeySecret: 'BJZHwJk8sBxr4wXZDk3SriSCskAtUV',
+            bucket: 'fulltopstack'
+        }
+      })
       // 存储地址模块
-      dest: 'uploads',
+      // dest: 'uploads',
     }),
     DbModule,
     UsersModule,

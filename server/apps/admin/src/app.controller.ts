@@ -20,8 +20,9 @@ export class AppController {
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
   async upload(@UploadedFile('file') file) {
-    return {
-      url: `http://localhost:3000/uploads/${file.filename}`,
-    };
+    return file
+    // return {
+    //   url: `http://localhost:3000/uploads/${file.filename}`,
+    // };
   }
 }
