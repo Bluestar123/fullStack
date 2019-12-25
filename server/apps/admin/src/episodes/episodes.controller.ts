@@ -32,6 +32,7 @@ export class EpisodesController {
       align: 'center',
       border: true,
       stripe: true,
+      translate: false,
       column: [{
         label:'所属课程',
         prop: 'course',
@@ -41,9 +42,11 @@ export class EpisodesController {
       },{ prop: 'name', label: '课时名称', span: 24 }, {
         prop:'file',
         label: '视频文件',
+        listType:'picture-img',
         span: 24,
         type: 'upload',
-        action: '/upload'
+        action: '/upload',
+        width: 120
       }],
     };
   }
