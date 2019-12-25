@@ -1,5 +1,5 @@
 import { prop, modelOptions, arrayProp, Ref } from '@typegoose/typegoose';
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { Episode } from './episode.model';
 
 @modelOptions({
@@ -11,15 +11,15 @@ import { Episode } from './episode.model';
  * 课程 课时
  */
 export class Course {
-  @ApiModelProperty({ description: '课程名称' })
+  @ApiProperty({ description: '课程名称' })
   @prop()
   name: string;
 
-  @ApiModelProperty({ description: '封面图' })
+  @ApiProperty({ description: '封面图' })
   @prop()
   cover: string;
 
-  // 数据关联
+  // 数据关联, 课时属于哪个课程
   @arrayProp({ itemsRef: 'Episode' }) // 字符串好一点， 防止循环引用
   episodes: Ref<Episode>[];
 }

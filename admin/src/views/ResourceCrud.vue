@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
-import { watch } from 'fs'
+// import { watch } from 'fs'
 
 @Component({})
 export default class ResourceList extends Vue {
@@ -92,7 +92,7 @@ export default class ResourceList extends Vue {
     this.fetch()
     done() // 加载完成 自动关闭框
   }
-  async update(row, index, done, loading) {
+  async update(row: any, index: any, done: any, loading: any) {
     const data = JSON.parse(JSON.stringify(row))
     delete data.$index
     await this.$http.put(`/${this.resource}/${data._id}`, data)
