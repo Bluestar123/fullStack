@@ -11,12 +11,23 @@ const modules = TypegooseModule.forFeature([User, Course, Episode]);
 @Global()
 @Module({
   imports: [
-    TypegooseModule.forRoot('mongodb://localhost/topfullstack', {
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
+    TypegooseModule.forRootAsync({
+      useFactory() {// 工厂函数
+        return  {
+          uri: process.env.DB,
+          useNewUrlParser: true,
+          useCreateIndex: true,
+          useunifiedTopogy: true,
+          useFindAndModify: false
+        }
+      }
     }),
+    // TypegooseModule.forRoot(process.env.DB, {
+    //   useNewUrlParser: true,
+    //   useCreateIndex: true,
+    //   useUnifiedTopology: true,
+    //   useFindAndModify: false,
+    // }),
     modules,
   ],
   providers: [DbService],
