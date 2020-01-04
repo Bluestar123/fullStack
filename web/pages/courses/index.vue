@@ -3,7 +3,12 @@
     <h3 class="pa-3">热门课程</h3>
     <v-row>
       <v-col v-for="item in courses" :key="item._id">
-        <v-card class="mx-auto" max-width="400" md="3">
+        <v-card
+          :to="`/courses/${item._id}`"
+          class="mx-auto"
+          max-width="400"
+          md="3"
+        >
           <v-img :src="item.cover" class="white--text align-end" height="200px">
             <v-card-title>{{ item.name }}</v-card-title>
           </v-img>
@@ -33,7 +38,7 @@ export default {
      * $get 直接返回 res.data数据
      */
     const data = await $axios.$get('courses')
-    // return 对象，接口数据
+    // return 对象，接口数据,自动放到 data数据中
     return {
       courses: data.data
     }
