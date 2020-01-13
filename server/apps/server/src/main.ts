@@ -10,8 +10,8 @@ async function bootstrap() {
     prefix: '/uploads',
   });
   const options = new DocumentBuilder()
-    .setTitle('NestJS全栈之巅')
-    .setDescription('供后台管理界面调用的服务端API')
+    .setTitle('NestJS全栈之巅-前端API')
+    .setDescription('供网站和APP调用的API')
     .setVersion('1.0')
     .build();
 

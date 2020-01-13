@@ -11,7 +11,7 @@ async function bootstrap() {
     prefix: '/uploads',
   });
   const options = new DocumentBuilder()
-    .setTitle('NestJS全栈之巅')
+    .setTitle('NestJS全栈之巅-后台管理')
     .setDescription('供后台管理界面调用的服务端API')
     .setVersion('1.0')
     .build();
