@@ -13,6 +13,7 @@ async function bootstrap() {
     .setTitle('NestJS全栈之巅-前端API')
     .setDescription('供网站和APP调用的API')
     .setVersion('1.0')
+    .addBearerAuth() //启用 bear token功能
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
