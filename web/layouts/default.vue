@@ -31,12 +31,20 @@
             <v-list-item-title v-text="item.text" />
           </v-list-item>
         </v-list>
-        <v-list-item class="mt-4" link>
+        <v-list-item v-if="$store.state.auth.user" class="mt-4">
           <v-list-item-action>
-            <v-icon color="grey darken-1">mdi-plus-circle-outline</v-icon>
+            <v-icon color="grey darken-1">mdi-lock</v-icon>
+          </v-list-item-action>
+          <v-list-item-title class="grey--text text--darken-1">
+            {{ $store.state.auth.user.username }}
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item v-else @click="isShowLoginForm" class="mt-4">
+          <v-list-item-action>
+            <v-icon color="grey darken-1">mdi-lock</v-icon>
           </v-list-item-action>
           <v-list-item-title class="grey--text text--darken-1"
-            >Browse Channels</v-list-item-title
+            >登录</v-list-item-title
           >
         </v-list-item>
         <v-list-item link>
@@ -72,6 +80,22 @@
     <v-content>
       <nuxt-child></nuxt-child>
     </v-content>
+
+    <v-bottom-sheet v-model="isShowLoginForm" inset>
+      <v-form @submit.prevent="login" class="pa-4">
+        <v-text-field
+          v-model="loginModel.username"
+          label="用户名"
+        ></v-text-field>
+        <v-text-field
+          v-model="loginModel.password"
+          label="密码"
+          type="password"
+          autocomplete="new-password"
+        ></v-text-field>
+        <v-btn color="success" type="submit">登录</v-btn>
+      </v-form>
+    </v-bottom-sheet>
   </v-app>
 </template>
 
@@ -90,6 +114,8 @@ export default {
       { icon: 'trending_up', text: '热门课程', link: '/courses' },
       { icon: 'subscriptions', text: '热门评论', link: '/comments' }
     ],
+    isShowLoginForm: true,
+    loginModel: {},
     items2: [
       { picture: 28, text: 'Joseph' },
       { picture: 38, text: 'Apple' },
@@ -100,6 +126,14 @@ export default {
   }),
   created() {
     this.$vuetify.theme.dark = true
+  },
+  methods: {
+    async login() {
+      await this.$auth.loginWith('local', {
+        data: this.loginModel
+      })
+      this.isShowLoginForm = false
+    }
   }
 }
 </script>

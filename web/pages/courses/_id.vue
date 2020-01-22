@@ -11,6 +11,16 @@
 
 <script>
 export default {
+  data() {
+    return {
+      currentIndex: 0
+    }
+  },
+  computed: {
+    episode() {
+      return this.course.episodes[this.currentIndex]
+    }
+  },
   async asyncData({ $axios, params }) {
     const { id } = params
     const course = await $axios.$get(`/courses/${id}`, {
@@ -24,16 +34,6 @@ export default {
     return {
       id,
       course
-    }
-  },
-  data() {
-    return {
-      currentIndex: 0
-    }
-  },
-  computed: {
-    episode() {
-      return this.course.episodes[this.currentIndex]
     }
   }
 }
