@@ -36,10 +36,10 @@
             <v-icon color="grey darken-1">mdi-lock</v-icon>
           </v-list-item-action>
           <v-list-item-title class="grey--text text--darken-1">
-            {{ $store.state.auth.user.username }}
+            欢迎回来&nbsp;{{ $store.state.auth.user.username }}
           </v-list-item-title>
         </v-list-item>
-        <v-list-item v-else @click="isShowLoginForm" class="mt-4">
+        <v-list-item v-else @click="isShowLoginForm = true" class="mt-4">
           <v-list-item-action>
             <v-icon color="grey darken-1">mdi-lock</v-icon>
           </v-list-item-action>
@@ -114,7 +114,7 @@ export default {
       { icon: 'trending_up', text: '热门课程', link: '/courses' },
       { icon: 'subscriptions', text: '热门评论', link: '/comments' }
     ],
-    isShowLoginForm: true,
+    isShowLoginForm: false,
     loginModel: {},
     items2: [
       { picture: 28, text: 'Joseph' },
