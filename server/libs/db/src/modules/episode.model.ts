@@ -14,7 +14,7 @@ export class Episode {
   @prop()
   file: string;
 
-  // 定义跟course关联， 参考course中东西
+  // 定义跟course关联， 参考course中东西  显示的应该是_id
   @prop({ref: 'Course'})
   course: Ref<Course>
 }
